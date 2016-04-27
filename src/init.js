@@ -1,7 +1,5 @@
 $(document).ready(function() {
   window.dancers = [];
-  window.roadRunner = [];
-  window.wileECoyote = [];
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -30,6 +28,41 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    //window.dancers.push(dancer.$node);
   });
+
+  $('.line').on('click', function(event) {
+    event.stopPropagation();
+    $('.roadRunner').animate({
+      'left': '85%',
+    });
+    $('.coyote').animate({
+      'left': '15%'
+    });
+  }); 
+  
+  var playMusic = function () {
+    $('#music')[0].volume = 0.7;
+    $('#music')[0].load();
+    $('#music')[0].play();
+  };
+  playMusic();
+
+  setTimeout(function() {
+    playMusic();
+  }, 35000);
+
+  var killCoyote = function() {
+    var $anvil = $('.anvil').position();
+    var $coyote = $('.coyote').position();
+    if ($anvil.left + 100 <= $coyote.left || $anvil.left - 100 <= $coyote.left) {
+      $('.coyote').remove();
+    }
+  };
+
+  killCoyote();
+
 });
+
+
 

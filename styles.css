@@ -12,7 +12,8 @@ body{
   float: left;
   padding-left: 0.5em;
 }
-.addDancerButton {
+.addDancerButton, 
+.line {
   padding:5px 12px;
   float: right;
   color: white;
@@ -23,10 +24,24 @@ body{
 }
 .title{
   background-color: #173895;
-  color: white;
+  color: white; 
 }
 .dancer{
   border:10px solid red;
   border-radius:10px;
-  position:absolute;
+  position: absolute;
 }
+
+.roadRunner,
+.coyote {
+  height: 100px;
+  width: 150px;
+  position: absolute;
+}
+
+.anvil {
+  height: 200px;
+  width: 300px;
+  position: absolute;
+}
+

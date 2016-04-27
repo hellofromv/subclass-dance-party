@@ -1,12 +1,16 @@
-var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
+var makeAnvil = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
+  this.$node = $('<img class="anvil" src="anvil.png"/>');
+  this.setPosition(null, left);
 };
 
-makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
+makeAnvil.prototype = Object.create(makeDancer.prototype);
 
-makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
+makeAnvil.prototype.constructor = makeAnvil;
 
-makeBlinkyDancer.prototype.step = function(timeBetweenSteps) {
+makeAnvil.prototype.step = function(timeBetweenSteps) {
   makeDancer.prototype.step.call(this, timeBetweenSteps);
-  this.$node.toggle();
+  this.$node.animate({
+    'top': '1000px'
+  }, 'slow');
 };
